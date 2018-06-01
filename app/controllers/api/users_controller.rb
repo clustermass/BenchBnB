@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
       render :show
     else
       # flash.now[:errors] = @user.errors.full_messages
-      render json: {errors:{"#{@user.errors.full_messages}"}, status: 422
+      render json: @user.errors.full_messages, status: 422
     end
   end
 private
