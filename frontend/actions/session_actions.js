@@ -9,6 +9,13 @@ export const receiveCurrentUser = (user) => ({
   data: user
 });
 
+export const receiveSessionErrors = (errors) => (
+  {
+    type: RECEIVE_ERRORS,
+    data: errors
+  }
+)
+
 export const login = (user) => dispatch => {
-  
+APIUtil.postNewSession(user).then(user => (dispatch(receiveCurrentUser(user)), errors => (dispatch(receiveSessionErrors(errors))))
 }
